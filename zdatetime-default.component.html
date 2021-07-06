@@ -1,0 +1,62 @@
+<!--<div *ngIf="item.width_form==150; else elseBlock">
+    <app-txt-string [value]="item.value" [stringProp]="item" (InputData)="onKeyupfunction($event)"></app-txt-string>
+</div>
+<ng-template #elseBlock>
+    <z-datetimepicker></z-datetimepicker>
+</ng-template>-->
+
+
+<div class="css-date-box">
+
+    <div *ngIf="obj.result != null;elseBlock ">
+        <span class="css-caption">วัน-เดือน-ปี</span>
+        <div class="css-datepicker-box">
+            <input type="text" class="css-datepicker" value="{{isDateformat}}" placeholder="{{obj.result.FormatDate}}">
+            <a class="css-datepicker-img" (click)="onIsOpenDate($event)"></a>
+        </div>
+        <div class="css-datepicker-value-box" [style.display]="isDisplay" (click)="onIsOpenDateBody($event)">
+            <div class="css-dt-dat-hd">
+                <span class="css-dt-dat-hd-img-left"
+                    (click)="onPreviousNext('PREVIOUS',obj.result.MonthCurrent)"></span>
+
+                <span class="css-dt-dat-hd-mm-yy">{{obj.result.MonthOfYear.MMMMyyyy}}</span>
+                <span class="css-dt-dat-hd-img-right" (click)="onPreviousNext('NEXT',obj.result.MonthCurrent)"></span>
+            </div>
+
+            <div class="css-dayweek">
+                <span *ngFor="let it of obj.result.DayOfWeeks">
+                    <a>{{it.daystr}}</a>
+                </span>
+            </div>
+            <hr />
+            <div *ngFor="let it of obj.result.RowOfDayOfMonth">
+                <div class="css-dayweek">
+                    <div *ngFor="let dtl of it.DayOfMonths" (click)="onClickDate(dtl)">
+                        <span *ngIf="dtl.isnow==false">
+                            <div>
+                                {{dtl.day}}
+                            </div>
+                        </span>
+                        <span  *ngIf="dtl.isnow">
+                            <div class="current">
+                                {{dtl.day}}
+                            </div> 
+                        </span>
+
+                        <!--div [ngSwitch]="dtl.dayint">
+                            <span *ngSwitchCase="1">{{dtl.day}}</span>
+                            <span *ngSwitchCase="2">{{dtl.day}}</span>
+                            <span *ngSwitchCase="3">{{dtl.day}}</span>
+                            <span *ngSwitchCase="4">{{dtl.day}}</span>
+                            <span *ngSwitchCase="5">{{dtl.day}}</span>
+                            <span *ngSwitchCase="6">{{dtl.day}}</span>
+                            <span *ngSwitchCase="7">{{dtl.day}}</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <a>Hello</a>
+    </ng-template>
+</div>
