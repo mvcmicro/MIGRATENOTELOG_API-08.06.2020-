@@ -1,0 +1,57 @@
+$fontsize: 1em;
+$font: "Sarabun";
+$fontsrc: local("Sarabun"), url(./../assets/fonts/Sarabun/Sarabun-Medium.ttf) format("truetype");
+$color: #525151;
+@font-face {
+    font-family: $font;
+    src: $fontsrc;
+}
+@mixin font-family() {
+    font-family: $font;
+    color: $color;
+}
+@mixin outline() {
+    border: none;
+    outline: none;
+}
+//sart--textbox---
+.css-box {
+    @include font-family();
+    position: relative;
+    width: 100%;
+    position: relative;
+    margin-left: 0.9em;
+    margin-right: 1em;
+    margin-top: 2em;
+    grid-column-gap: 30px;
+}
+.css-caption {
+    @include font-family();
+    padding-left: 0.5px;
+    position: absolute;
+    top: -23px;
+    left: 6px;
+    background-color: #ffffff;
+    border-bottom: #525151;
+}
+.css-textbox {
+    @include outline();
+    @include font-family();
+    font-size: $fontsize;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #d1d1d1;
+    box-shadow: inset 1px 2px 8px rgba(48, 48, 48, 0.07);
+    line-height: 0.7em;
+    width: 100%;
+    padding: 0.4em 0.5em 0.4em;
+    -webkit-transition: 0.18s ease-out;
+    -moz-transition: 0.18s ease-out;
+    -o-transition: 0.18s ease-out;
+    transition: 0.18s ease-out;
+}
+.css-textbox :focus {
+    @include outline();
+}
+
+//end--textbox---
